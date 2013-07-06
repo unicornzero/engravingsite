@@ -1,0 +1,12 @@
+# CONFIG Variables
+#   This contains secure account information.
+#   These are merged into the CONFIG hash via
+#   the config/application.rb file.
+# 
+#   This app must have a correctly configured 
+#	config/application.rb file to function as
+#   designed.
+################################################
+
+testy: "this is my testy string"
+
