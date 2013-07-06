@@ -3,4 +3,19 @@
 <p>This is the stream of user...</p>
 <p>
   <%= @fuser_name %><br>
+  <br>
+  Photo Sets include:
+  <ul>
+  <% @psets_hash.each do |s| %>
+    <li><%= s %></li>
+  <% end %>  
+  </ul>
+
+  <p><%= @psets_hash %></p>
+
+  <br>
+  Photo Set API Query yielded:
+  @psetlist <%= @psetlist %>  <br>
+  <br>
+
 </p>
