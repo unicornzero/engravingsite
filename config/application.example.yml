@@ -14,3 +14,6 @@ testy: "this is my testy string"
 #  Secret token for config/initializers/secret_token.rb
 #  You can use `rake secret` to generate a secure secret key.
 secret_token: "abc123_EDIT_ME"
+flickraw_api: "1a2b3c4d5e"
+flickraw_secret: "12345"
+my_flickr_user: "my_username"
