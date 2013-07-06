@@ -10,3 +10,7 @@
 
 testy: "this is my testy string"
 
+
+#  Secret token for config/initializers/secret_token.rb
+#  You can use `rake secret` to generate a secure secret key.
+secret_token: "abc123_EDIT_ME"
