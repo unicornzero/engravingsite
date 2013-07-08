@@ -2,20 +2,15 @@
 
 <p>This is the stream of user...</p>
 <p>
-  <%= @fuser_name %><br>
-  <br>
-  Photo Sets include:
-  <ul>
-  <% @psets_hash.each do |s| %>
-    <li><%= s %></li>
-  <% end %>  
-  </ul>
-
-  <p><%= @psets_hash %></p>
-
-  <br>
-  Photo Set API Query yielded:
-  @psetlist <%= @psetlist %>  <br>
-  <br>
-
+  <%= CONFIG[:my_flickr_user] %><br>
 </p>
+
+
+<% @psets_hash.each do | set_id, title | %>
+  <h3><%= title %></h3>
+  <% pics_in_set(set_id).to_hash["photo"].each do |the_photo| %>
+        <% @the_photo= the_photo %>
+        <%= render "photo_insert", object: @the_photo %>
+      <% end %>
+    </p>
+<% end %>

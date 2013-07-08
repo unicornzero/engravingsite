@@ -1,29 +1,31 @@
 class FlickrStreamController < ApplicationController
 
+  helper_method :pics_in_set
+  before_filter :photoset_list, only: :main_stream
+
 	require 'flickraw'
   FlickRaw.api_key= CONFIG[:flickraw_api]
   FlickRaw.shared_secret= CONFIG[:flickraw_secret]
 
   def main_stream
-  	user_lookup
-    photoset_list
   end
 
-  private
-  	def user_lookup
-	    @fname = CONFIG[:my_flickr_user]
-	    @fuser = flickr.people.findByUsername(:username => @fname)
-	    @fuser_hash= @fuser.to_hash
-      @fuser_name = @fuser_hash["username"]
-  	end
+  def user_stream
+    @all_photos = flickr.people.getPublicPhotos(user_id: CONFIG[:my_flickr_id]).to_hash
+  end
 
-    def photoset_list
-      @fid = CONFIG[:my_flickr_id]
-      @plist = flickr.photosets.getList(user_id: @fid)
-      @psetlist = @plist.to_hash
-      @psets = @psetlist["photoset"]
-      @psets_hash = []
 
-      @psets.each {|s| @psets_hash << s["title"]}
-    end
+
+  def photoset_list
+    @fid = CONFIG[:my_flickr_id]
+    @psets = flickr.photosets.getList(user_id: @fid).to_hash["photoset"]
+    @psets_hash = {}
+    @psets.each { |s| 
+      @psets_hash[s["id"]] = s["title"] }
+  end
+
+  def pics_in_set(set_id)
+    @pics_response = flickr.photosets.getPhotos(photoset_id: set_id, privacy_filter: "1")
+  end
+
 end

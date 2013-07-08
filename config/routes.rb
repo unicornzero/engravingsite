@@ -3,6 +3,8 @@ Engravingsite::Application.routes.draw do
 
   get "/home", to: "static_pages#home", as: 'home'
   get "/fstream", to: "flickr_stream#main_stream", as: 'fstream'
+  get "/ustream", to: "flickr_stream#user_stream", as: 'ustream'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

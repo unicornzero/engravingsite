@@ -1,0 +1,13 @@
+<h1>User Stream page</h1>
+<br>
+<br>
+<h3>All photos:</h3>
+<p>
+  <% @all_photos["photo"].each do |the_photo| %>
+    <% @the_photo= the_photo %>
+    <%= render "photo_insert", object: @the_photo %>
+  <% end %>
+</p>
+
+
+

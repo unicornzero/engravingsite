@@ -1,0 +1,3 @@
+<% h = @the_photo.to_hash %>
+<% path = "http://farm#{h["farm"]}.staticflickr.com/#{h["server"]}/#{h["id"]}_#{h["secret"]}_m.jpg" %>
+<%= image_tag path %>
