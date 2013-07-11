@@ -45,3 +45,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "flickraw", "~> 0.9.6"
+gem "google-api-client", "~> 0.6.4"

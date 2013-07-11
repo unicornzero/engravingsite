@@ -8,13 +8,22 @@
 #   designed.
 ################################################
 
-testy: "this is my testy string"
+testy: "this is my test string"
 
 
 #  Secret token for config/initializers/secret_token.rb
 #  You can use `rake secret` to generate a secure secret key.
 secret_token: "abc123_EDIT_ME"
+
+#  Flickr
 flickraw_api: "1a2b3c4d5e"
 flickraw_secret: "12345"
 my_flickr_user: "my_username"
 my_flickr_id: "1234567@N89"
+
+#  Google API
+google_api_key: "big-Long-string" #https://developers.google.com/youtube/v3/getting-started
+google_full_key_path: "#{Rails.root}/config/privatekey/<YOUR KEY'S FILE NAME>" #full url to Google OAuth Private Key
+google_secret_key_path: "<YOUR KEY'S FILE NAME>" #just the file-name, to add to interpolated string
+google_secret_phrase: "notasecret"
+google_issuer: "<SOME_NUMBER>@developer.gserviceaccount.com"

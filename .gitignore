@@ -17,3 +17,6 @@
 
 # Ignore local configuration file
 /config/application.yml
+
+# Ignore Google API private key:
+/config/privatekey
