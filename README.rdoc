@@ -27,6 +27,11 @@ Steps to setup application:
 * - - "API Key" to "google_api_key"
 
 ######################
+Usage Notes:
+- Google API Gem documented at https://github.com/google/google-api-ruby-client
+- YouTube API documented at https://developers.google.com/youtube/v3/docs/
+
+######################
 Notes about scope of Google API requests:
  - by xpepermint at http://stackoverflow.com/questions/14106337/google-api-client-rails/16471252
 In new tab, go to https://developers.google.com/products/ and choose the service that you would like to use. In the left menu navigate to Configuration > Management API (v3) > Resources > Authorization (https://developers.google.com/analytics/devguides/config/mgmt/v3/mgmtAuthorization). In the table below you will find the appropriate ":scope" parameter url (e.g. https://www.googleapis.com/auth/analytics.readonly). This is how you find the appropriate scope.
