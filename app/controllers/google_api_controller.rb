@@ -4,8 +4,8 @@ class GoogleApiController < ApplicationController
 
   # Config hash values defined in config/application.yml:
   GOOGLE_DEV_KEY = CONFIG[:google_api_key]
-  GOOGLE_SECRET_KEY_PATH = "#{Rails.root}/config/privatekey/#{CONFIG[:google_secret_key_path]}"
-  GOOGLE_SECRET_PHRASE = CONFIG[:google_secret_phrase]  
+  GOOGLE_PRIVATE_KEY_PATH = "#{Rails.root}/config/privatekey/#{CONFIG[:google_private_key]}"
+  GOOGLE_KEY_PASSWORD = CONFIG[:google_key_password]  
   GOOGLE_ISSUER = CONFIG[:google_issuer]
 
   # Standard YouTube data:
@@ -30,7 +30,7 @@ class GoogleApiController < ApplicationController
   def start_session
     @client = Google::APIClient.new(key: GOOGLE_DEV_KEY, authorization: nil, application_name: MY_APP_NAME, application_version: MY_APP_VER)
     @youtube_api = @client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
-    key = Google::APIClient::PKCS12.load_key(GOOGLE_SECRET_KEY_PATH, GOOGLE_SECRET_PHRASE)
+    key = Google::APIClient::PKCS12.load_key(GOOGLE_PRIVATE_KEY_PATH, GOOGLE_KEY_PASSWORD)
     @client.authorization = Signet::OAuth2::Client.new(
       :token_credential_uri => 'https://accounts.google.com/o/oauth2/token',
       :audience => 'https://accounts.google.com/o/oauth2/token',

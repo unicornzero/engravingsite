@@ -8,7 +8,6 @@ Steps to setup application:
 * - Generate Flickr API Key & Secret
 * - Open config/application.yml to update :flickraw_api and :flickraw_secret
 * Setup Google-API Integration:
-# - Follow instructions at https://developers.google.com/youtube/registering_an_application to setup a new project in Google APIs Console. Be sure to follow steps to toggle YouTube Data API v3 service to ON.
 * - Login to Google in your web browser
 * - Go to Google Apis (https://code.google.com/apis/console/) 
 * - Setup a project:
@@ -21,10 +20,8 @@ Steps to setup application:
 * - - Enter your product name (optional: add logo and url) and click Next.
 * - - Select "Service account" as the Application Type. This application doesn't require users to log in.
 * - - Click the Create Client ID button.
-* - - Note the password displayed. Add it to config/application.yml as :google_secret_phrase 
-##change to google_key_password##
-* - - Download the private key and move it into the config/privatekey directory. Update :google_full_key_path and :google_secret_key_path
-##change to google_private_key##
+* - - Note the password displayed. Add it to config/application.yml as :google_key_password
+* - - Download the private key and move it into the config/privatekey directory. Update :google_full_key_path and :google_private_key
 * - Transfer information from the API Access page to config/application.yml
 * - - "Email Address" to :google_issuer
 * - - "API Key" to "google_api_key"
