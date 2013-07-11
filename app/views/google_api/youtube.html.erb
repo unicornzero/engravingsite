@@ -1,9 +1,13 @@
 <h1>GoogleApi#youtube</h1>
-<p>Find me in app/views/google_api/youtube.html.erb
+<br>
 
+<p>
+  <%= @video_results %>
 
 </p>
 <p>
-  <%= @result.data.to_hash if @result %>
-  <br>
+  Just the "items":<br>
+  <% @video_list_response.data.to_hash["items"].each do |thing| %>
+    <%= thing %><br><br>
+  <% end %>
 </p>

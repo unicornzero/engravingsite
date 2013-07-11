@@ -23,7 +23,8 @@ class GoogleApiController < ApplicationController
 
   def youtube
     start_session
-    find_user_channels
+    #find_user_uploads_playlist
+    find_videos_in_uploads_playlist
   end
 
 
@@ -40,12 +41,28 @@ class GoogleApiController < ApplicationController
     @client.authorization.fetch_access_token!
   end
 
-  def find_user_channels
+  def find_user_uploads_playlist
     @result = @client.execute!(
       :api_method => @youtube_api.channels.list,
-      :parameters => { forUsername: "jaydumars", part: 'contentDetails'}
-    )
+      :parameters => { part: 'contentDetails', forUsername: "jaydumars"} )
+    @user_uploads = @result.data.items.first["contentDetails"]["relatedPlaylists"]["uploads"]
+  end
 
+  def find_videos_in_uploads_playlist
+    @video_list_response = @client.execute!(
+      :api_method => @youtube_api.playlist_items.list,
+      # snake_case playlist_items due to https://code.google.com/p/google-api-ruby-client/issues/detail?id=64
+      :parameters => { 
+        part: "snippet", 
+        playlistId: "UUu-3OECrvptij7cGs_A9Bqg",
+        maxResults: 50 } )
+
+    @video_results = {}
+    @video_list_response.data.items.each do |playlist_item|
+        title = playlist_item['snippet']['title']
+        video_id = playlist_item['snippet']['resourceId']['videoId']
+        @video_results[video_id] = title
+      end
   end
 
 end
