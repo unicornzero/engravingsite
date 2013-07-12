@@ -2,6 +2,10 @@ class GoogleApiController < ApplicationController
   
   require 'google/api_client'
 
+  helper_method :change_video_id_to_url
+
+
+  ### Variables ###
   # Config hash values defined in config/application.yml:
   GOOGLE_DEV_KEY = CONFIG[:google_api_key]
   GOOGLE_PRIVATE_KEY_PATH = "#{Rails.root}/config/privatekey/#{CONFIG[:google_private_key]}"
@@ -17,8 +21,6 @@ class GoogleApiController < ApplicationController
   YOUTUBE_USERS = ["dumarsengraving", "jaydumars"]
   MY_APP_NAME = "Engraver App"
   MY_APP_VER = "v1"
-
-
 
 
   def youtube
@@ -64,5 +66,10 @@ class GoogleApiController < ApplicationController
         @video_results[video_id] = title
       end
   end
+
+  def change_video_id_to_url(video_id)
+    "http://www.youtube.com/watch?v=#{video_id}"
+  end
+
 
 end

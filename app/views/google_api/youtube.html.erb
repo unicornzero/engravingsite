@@ -1,13 +1,20 @@
 <h1>GoogleApi#youtube</h1>
 <br>
 
-<p>
-  <%= @video_results %>
+<iframe width="560" height="315" src="//www.youtube.com/embed/yeCMPVyMJkw" frameborder="0" allowfullscreen></iframe>
 
-</p>
 <p>
   Just the "items":<br>
   <% @video_list_response.data.to_hash["items"].each do |thing| %>
     <%= thing %><br><br>
   <% end %>
 </p>
+
+
+  <% @video_results.each do | video_id, title | %>
+    <h3><%= title %></h3>
+    <iframe width='560' height='315' src='//www.youtube.com/embed/<%= video_id %>' frameborder='0' allowfullscreen></iframe>
+    <p><%= link_to title, change_video_id_to_url(video_id) %></p>
+  <% end %>
+<br>
+
