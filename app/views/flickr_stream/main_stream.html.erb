@@ -6,11 +6,11 @@
 </p>
 
 
-<% @psets_hash.each do | set_id, title | %>
-  <h3><%= title %></h3>
-  <% pics_in_set(set_id).to_hash["photo"].each do |the_photo| %>
+<% @sets_of_photos.each do | photo_set | %>
+  <h3><%= photo_set[:title] %></h3>
+  <% photo_set[:photos].each do |the_photo| %>
         <% @the_photo= the_photo %>
         <%= render "photo_insert", object: @the_photo %>
-      <% end %>
+  <% end %>
     </p>
 <% end %>

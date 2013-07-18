@@ -1,19 +1,25 @@
 class FlickrStreamController < ApplicationController
 
-  helper_method :pics_in_set
-  before_filter :photoset_list, only: :main_stream
+  #helper_method :pics_in_set
+  #before_filter :photoset_list, only: :main_stream
 
-	require 'flickraw'
-  FlickRaw.api_key= CONFIG[:flickraw_api]
-  FlickRaw.shared_secret= CONFIG[:flickraw_secret]
 
   def main_stream
+    @flickr = MyFlickrAPI.new
+    @flickr.load_main_stream
+    @sets_of_photos = @flickr.sets_of_photos
   end
 
   def user_stream
-    @all_photos = flickr.people.getPublicPhotos(user_id: CONFIG[:my_flickr_id]).to_hash
+    @flickr = MyFlickrAPI.new
+    @flickr.find_all_photos
+    @all_photos = @flickr.all_photos
   end
 
+=begin
+  require 'flickraw'
+  FlickRaw.api_key= CONFIG[:flickraw_api]
+  FlickRaw.shared_secret= CONFIG[:flickraw_secret]
 
 
   def photoset_list
@@ -27,5 +33,6 @@ class FlickrStreamController < ApplicationController
   def pics_in_set(set_id)
     @pics_response = flickr.photosets.getPhotos(photoset_id: set_id, privacy_filter: "1")
   end
+=end
 
 end
