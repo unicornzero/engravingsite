@@ -1,10 +1,9 @@
-class GoogleApiController < ApplicationController
+class MyGoogleAPI
   
-#  require 'google/api_client'
+  require 'google/api_client'
 
-  helper_method :change_video_id_to_url
 
-=begin
+
   ### Variables ###
   # Config hash values defined in config/application.yml:
   GOOGLE_DEV_KEY = CONFIG[:google_api_key]
@@ -21,17 +20,16 @@ class GoogleApiController < ApplicationController
   YOUTUBE_USERS = ["dumarsengraving", "jaydumars"]
   MY_APP_NAME = "Engraver App"
   MY_APP_VER = "v1"
-=end
 
-  def youtube
-    #start_session
+  attr_reader :video_results
+
+  def initialize
+    start_session
     #find_user_uploads_playlist
-    #find_videos_in_uploads_playlist
-    @mysession = MyGoogleAPI.new
-    @vid_results = @mysession.video_results
+    find_videos_in_uploads_playlist
   end
 
-=begin
+
   def start_session
     @client = Google::APIClient.new(key: GOOGLE_DEV_KEY, authorization: nil, application_name: MY_APP_NAME, application_version: MY_APP_VER)
     @youtube_api = @client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
@@ -68,7 +66,6 @@ class GoogleApiController < ApplicationController
         @video_results[video_id] = title
       end
   end
-=end
 
   def change_video_id_to_url(video_id)
     "http://www.youtube.com/watch?v=#{video_id}"
