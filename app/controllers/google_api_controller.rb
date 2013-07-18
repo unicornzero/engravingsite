@@ -5,7 +5,6 @@ class GoogleApiController < ApplicationController
   def youtube
     @mysession = MyGoogleAPI.new
     @vid_results = @mysession.video_results
-    @playlists = @mysession.playlists
   end
 
   def change_video_id_to_url(video_id)
