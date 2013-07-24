@@ -1,7 +1,7 @@
 class MyGoogleAPI
   
   require 'google/api_client'
-  attr_reader :video_results
+  attr_reader :my_videos
 
 
   def initialize
@@ -68,10 +68,11 @@ class MyGoogleAPI
             part: "snippet", 
             playlistId: playlist_id,
             maxResults: 50 } )
+        @my_videos = []
         @video_list_response.data.items.each do |playlist_item|
             title = playlist_item['snippet']['title']
             video_id = playlist_item['snippet']['resourceId']['videoId']
-            @video_results[video_id] = title
+            @my_videos << [ video_id , title ]
           end
       end
 

@@ -1,0 +1,9 @@
+<% id = my_video.first %>
+<% title = my_video.last %>
+
+
+<h3><%= title %></h3>
+<iframe width='560' height='315' src='//www.youtube.com/embed/<%= id %>' frameborder='0' allowfullscreen></iframe>
+<p>
+  <%= link_to title, change_video_id_to_url(id) %>
+</p>

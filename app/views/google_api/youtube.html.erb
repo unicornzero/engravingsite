@@ -1,11 +1,4 @@
 <h1>GoogleApi#youtube</h1>
 <br>
 
-
-<% @vid_results.each do | video_id, title | %>
-  <h3><%= title %></h3>
-  <iframe width='560' height='315' src='//www.youtube.com/embed/<%= video_id %>' frameborder='0' allowfullscreen></iframe>
-  <p><%= link_to title, change_video_id_to_url(video_id) %></p>
-<% end %>
-
-<br>
+<%= render partial: "video_player", collection: @my_videos, as: :my_video %>
