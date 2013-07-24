@@ -18,14 +18,14 @@ class MyGoogleAPI
   end
 
   def find_videos_in_playlists(playlists)
-    @video_results = {}
+    @my_videos = []
     playlists.map do |playlist_id|
       find_videos_in_uploads_playlist(playlist_id)
     end
   end
 
 
-  private
+#  private
       def start_session
         set_instance_variables
         
@@ -68,7 +68,6 @@ class MyGoogleAPI
             part: "snippet", 
             playlistId: playlist_id,
             maxResults: 50 } )
-        @my_videos = []
         @video_list_response.data.items.each do |playlist_item|
             title = playlist_item['snippet']['title']
             video_id = playlist_item['snippet']['resourceId']['videoId']
