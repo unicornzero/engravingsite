@@ -1,7 +1,7 @@
 ## engravingsite Project
 
 ## Project Summary
-This project encompasses my early efforts to dynamically load content from both the Flickr and Google APIs. It was intended as a profile site to showcase work an artist has featured on multiple external sites.
+This project encompasses my early efforts to dynamically load content from both the Flickr and Google APIs. It is an early version of a profile site to showcase work an artist has featured on multiple external sites.
 
 ### Project Highlights
 * Flickr- Dynamically loads images currently available in a given user's Flickr photo stream. Uses the flickraw gem to connect to the Flickr API
