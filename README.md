@@ -14,27 +14,27 @@ This project encompasses my early efforts to dynamically load content from both 
 * Use 'rake secret' to generate a new :secret_token and copy it.
 * Update :secret_token in config/application.yml
 * Setup Flickr Integration:
-    Go to http://www.flickr.com/services/api/keys/
+    * Go to http://www.flickr.com/services/api/keys/
     * Generate Flickr API Key & Secret
-*    Open config/application.yml to update :flickraw_api and :flickraw_secret
+    * Open config/application.yml to update :flickraw_api and :flickraw_secret
 * Setup Google-API Integration:
-        Login to Google in your web browser
-        Go to Google Apis (https://code.google.com/apis/console/) 
-        Setup a project:
-            If you haven't used Google APIs yet, click the big blue Create a Project button.
-            Else, click the drop-down box in the top left to create a new project.
-        In the left navigation pane, click "Services". Enable YouTube Data API v3.
-        Setup OAuth:
-            In the left navigation pane, click "API Access". 
-            Create a OAuth Client ID by clicking on the big blue button.
-            Enter your product name (optional: add logo and url) and click Next.
-            Select "Service account" as the Application Type. This application doesn't require users to log in.
-            Click the Create Client ID button.
-            Note the password displayed. Add it to config/application.yml as :google_key_password
-            Download the private key and move it into the config/privatekey directory. Update :google_full_key_path and :google_private_key
-        Transfer information from the API Access page to config/application.yml
-            "Email Address" to :google_issuer
-            "API Key" to "google_api_key"
+    * Login to Google in your web browser
+    * Go to Google Apis (https://code.google.com/apis/console/) 
+    * Setup a project:
+        * If you haven't used Google APIs yet, click the big blue Create a Project button.
+        * Else, click the drop-down box in the top left to create a new project.
+    * In the left navigation pane, click "Services". Enable YouTube Data API v3.
+    * Setup OAuth:
+        * In the left navigation pane, click "API Access". 
+        * Create a OAuth Client ID by clicking on the big blue button.
+        * Enter your product name (optional: add logo and url) and click Next.
+        * Select "Service account" as the Application Type. This application doesn't require users to log in.
+        * Click the Create Client ID button.
+        * Note the password displayed. Add it to config/application.yml as :google_key_password
+        * Download the private key and move it into the config/privatekey directory. Update :google_full_key_path and :google_private_key
+    * Transfer information from the API Access page to config/application.yml
+        * "Email Address" to :google_issuer
+        * "API Key" to "google_api_key"
 
 ### Usage Notes:
 * Google API Gem documented at https://github.com/google/google-api-ruby-client
