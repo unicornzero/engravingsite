@@ -14,7 +14,7 @@ This project encompasses my early efforts to dynamically load content from both 
 * Use 'rake secret' to generate a new :secret_token and copy it.
 * Update :secret_token in config/application.yml
 * Setup Flickr Integration:
-*    Go to http://www.flickr.com/services/api/keys/
+    Go to http://www.flickr.com/services/api/keys/
 *    Generate Flickr API Key & Secret
 *    Open config/application.yml to update :flickraw_api and :flickraw_secret
 * Setup Google-API Integration:
