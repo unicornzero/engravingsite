@@ -8,15 +8,15 @@ This project encompasses my early efforts to dynamically load content from both 
 * Google- Dynamically loads videos the user uploaded to YouTube. Connects directly to the Google API using the google-api-client gem.
 
 
-## Setup info:
+### Setup info:
 
 * cp config/application.example.yml config/application.yml
 * Use 'rake secret' to generate a new :secret_token and copy it.
 * Update :secret_token in config/application.yml
 * Setup Flickr Integration:
-        Go to http://www.flickr.com/services/api/keys/
-        Generate Flickr API Key & Secret
-        Open config/application.yml to update :flickraw_api and :flickraw_secret
+*    Go to http://www.flickr.com/services/api/keys/
+*    Generate Flickr API Key & Secret
+*    Open config/application.yml to update :flickraw_api and :flickraw_secret
 * Setup Google-API Integration:
         Login to Google in your web browser
         Go to Google Apis (https://code.google.com/apis/console/) 
@@ -36,15 +36,15 @@ This project encompasses my early efforts to dynamically load content from both 
             "Email Address" to :google_issuer
             "API Key" to "google_api_key"
 
-## Usage Notes:
+### Usage Notes:
 * Google API Gem documented at https://github.com/google/google-api-ruby-client
 * YouTube API documented at https://developers.google.com/youtube/v3/docs/
 
-### Notes about scope of Google API requests:
+#### Notes about scope of Google API requests:
 > In new tab, go to https://developers.google.com/products/ and choose the service that you would like to use. In the left menu navigate to Configuration > Management API (v3) > Resources > Authorization (https://developers.google.com/analytics/devguides/config/mgmt/v3/mgmtAuthorization). In the table below you will find the appropriate ":scope" parameter url (e.g. https://www.googleapis.com/auth/analytics.readonly). This is how you find the appropriate scope.
 > > by xpepermint (http://stackoverflow.com/questions/14106337/google-api-client-rails/16471252)
 
-###  Additional info/features that may be added later...
+####  Additional info/features that may be added later...
 * Ruby version
 * System dependencies
 * Configuration
